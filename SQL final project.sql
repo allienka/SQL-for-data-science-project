@@ -16,16 +16,8 @@ CREATE TABLE `customers` (
   PRIMARY KEY (`customerNumber`),
   KEY `salesRepEmployeeNumber` (`salesRepEmployeeNumber`),
   CONSTRAINT `customers_ibfk_1` FOREIGN KEY (`salesRepEmployeeNumber`) REFERENCES `employees` (`employeeNumber`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) 
 
---
--- Table structure for table `employees`
---
-
-DROP TABLE IF EXISTS `employees`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `employees` (
   `employeeNumber` int NOT NULL,
   `lastName` varchar(50) NOT NULL,
@@ -40,16 +32,8 @@ CREATE TABLE `employees` (
   KEY `officeCode` (`officeCode`),
   CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`reportsTo`) REFERENCES `employees` (`employeeNumber`),
   CONSTRAINT `employees_ibfk_2` FOREIGN KEY (`officeCode`) REFERENCES `offices` (`officeCode`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) 
 
---
--- Table structure for table `offices`
---
-
-DROP TABLE IF EXISTS `offices`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `offices` (
   `officeCode` varchar(10) NOT NULL,
   `city` varchar(50) NOT NULL,
@@ -61,16 +45,8 @@ CREATE TABLE `offices` (
   `postalCode` varchar(15) NOT NULL,
   `territory` varchar(10) NOT NULL,
   PRIMARY KEY (`officeCode`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) 
 
---
--- Table structure for table `orderdetails`
---
-
-DROP TABLE IF EXISTS `orderdetails`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orderdetails` (
   `orderNumber` int NOT NULL,
   `productCode` varchar(15) NOT NULL,
@@ -81,16 +57,8 @@ CREATE TABLE `orderdetails` (
   KEY `productCode` (`productCode`),
   CONSTRAINT `orderdetails_ibfk_1` FOREIGN KEY (`orderNumber`) REFERENCES `orders` (`orderNumber`),
   CONSTRAINT `orderdetails_ibfk_2` FOREIGN KEY (`productCode`) REFERENCES `products` (`productCode`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) 
 
---
--- Table structure for table `orders`
---
-
-DROP TABLE IF EXISTS `orders`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orders` (
   `orderNumber` int NOT NULL,
   `orderDate` date NOT NULL,
@@ -102,16 +70,8 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`orderNumber`),
   KEY `customerNumber` (`customerNumber`),
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customerNumber`) REFERENCES `customers` (`customerNumber`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) 
 
---
--- Table structure for table `payments`
---
-
-DROP TABLE IF EXISTS `payments`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `payments` (
   `customerNumber` int NOT NULL,
   `checkNumber` varchar(50) NOT NULL,
@@ -119,32 +79,16 @@ CREATE TABLE `payments` (
   `amount` decimal(10,2) NOT NULL,
   PRIMARY KEY (`customerNumber`,`checkNumber`),
   CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`customerNumber`) REFERENCES `customers` (`customerNumber`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) 
 
---
--- Table structure for table `productlines`
---
-
-DROP TABLE IF EXISTS `productlines`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `productlines` (
   `productLine` varchar(50) NOT NULL,
   `textDescription` varchar(4000) DEFAULT NULL,
   `htmlDescription` mediumtext,
   `image` mediumblob,
   PRIMARY KEY (`productLine`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) 
 
---
--- Table structure for table `products`
---
-
-DROP TABLE IF EXISTS `products`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products` (
   `productCode` varchar(15) NOT NULL,
   `productName` varchar(70) NOT NULL,
