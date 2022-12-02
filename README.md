@@ -1,3 +1,7 @@
+
+
+Project for the course SQL for Data science
+
 Using MySQLWorkbench
 
 <img width="1030" alt="Screenshot 2022-12-02 at 11 59 02" src="https://user-images.githubusercontent.com/105230372/205267612-339bc7ed-fe72-4e8f-8e56-05754670017f.png">
