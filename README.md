@@ -38,6 +38,7 @@ retrieving the rows from the news table such that their News ID belongs to click
 <img width="474" alt="8" src="https://user-images.githubusercontent.com/105230372/205271113-6a5beecc-8928-4dfe-b865-77009442cd07.png">
 
 retrieving the news table such that we find out the number of rows in different categories within the retrieved table from previous task
+
 <img width="388" alt="9" src="https://user-images.githubusercontent.com/105230372/205271379-320f3737-7b3f-406a-b0ba-129259dfb0b5.png">
 
 retrieving the News ID, category, subcategory from the news table and Impression news2  from  the behaviors table such the new2 in the behaviors table equals with news ID in the news table
